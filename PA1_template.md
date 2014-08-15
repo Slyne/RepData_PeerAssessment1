@@ -84,7 +84,7 @@ interval_average<-tapply(data$steps,as.numeric(data$interval),mean,na.rm=TRUE)
 plot(names(interval_average),interval_average,type="l",xlab="interval",ylab="interval average")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
 
@@ -139,7 +139,8 @@ sum_per_day2<-tapply(as.numeric(data2$steps),data2$date,sum,na.rm=TRUE)
 hist(sum_per_day2)
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+
 
 ```r
 #new mean per day
@@ -303,5 +304,5 @@ library(lattice)
 xyplot(as.numeric(as.character(steps))~as.numeric(as.character(interval))|day,data=new,layout=c(1,2),type="l",xlab="interval",ylab="Number of steps")
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png) 
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 

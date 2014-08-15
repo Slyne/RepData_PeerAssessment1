@@ -10,7 +10,10 @@ data<-read.csv("activity.csv",colClasses=c("numeric","character","character"))
 sum_per_day<-tapply(data$steps,data$date,sum,na.rm=TRUE)
 hist(sum_per_day)
 ```
-
+``` {r echo=FALSE,results="hide"}
+dev.copy(png,file="./figures/p1.png")
+dev.off
+```
 2.Calculate and report the mean and median total number of steps taken per day    
 ```{r echo=TRUE}
 mean_per_day<-tapply(data$steps,data$date,mean,na.rm=TRUE)
@@ -24,7 +27,10 @@ median_per_day
 interval_average<-tapply(data$steps,as.numeric(data$interval),mean,na.rm=TRUE)
 plot(names(interval_average),interval_average,type="l",xlab="interval",ylab="interval average")
 ```
-
+``` {r echo=FALSE,results="hide"}
+dev.copy(png,file="./figures/p2.png")
+dev.off
+```
 2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
 ```{r echo=TRUE}
 a<-as.vector(interval_average)
@@ -56,7 +62,12 @@ str(data2)
 #The new histogram for total steps each day
 sum_per_day2<-tapply(as.numeric(data2$steps),data2$date,sum,na.rm=TRUE)
 hist(sum_per_day2)
-
+```
+``` {r echo=FALSE,results="hide"}
+dev.copy(png,file="./figures/p3.png")
+dev.off
+```
+```{r echo=TRUE}
 #new mean per day
 mean_per_day2<-tapply(as.numeric(data2$steps),data2$date,mean,na.rm=TRUE)
 mean_per_day2
@@ -97,4 +108,7 @@ new<-rbind(x2,y2)
 library(lattice)
 xyplot(as.numeric(as.character(steps))~as.numeric(as.character(interval))|day,data=new,layout=c(1,2),type="l",xlab="interval",ylab="Number of steps")
 ```
-
+``` {r echo=FALSE,results="hide"}
+dev.copy(png,file="./figures/p4.png")
+dev.off
+```
